@@ -1,35 +1,77 @@
 import AlertSuccessForm from "@/components/alerts/AlertSuccessForm";
 import { ButtonPrimary } from "@/components/buttons";
-import Input from "@/components/inputs/Input";
+import { useFormik } from "formik";
+import initialValues from "./contact-form.initial-value";
 import "./contact-form.scss";
-import useContactForm from "./useContactForm";
+import contactFormSchema from "./contact-form.validation-schema";
 
 const ContactForm = () => {
-    const { formik, isSubmitted, isSubmitDisabled, close } = useContactForm();
+    const formik = useFormik({
+        initialValues,
+        validationSchema: contactFormSchema,
+        onSubmit: (values, { resetForm, setStatus }) => {
+            console.log("✅ Datos enviados:", values);
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // ✅ Evita que el form navegue a /contact?...
-        formik.handleSubmit(e);
-    };
+            // 👉 activa la alerta
+            setStatus({ success: true });
+
+            // la cerramos a los 3 segundos y limpiamos el form
+            setTimeout(() => {
+                resetForm();
+                setStatus({ success: false });
+            }, 3000);
+        },
+    });
 
     return (
-        <form className="contact-form" onSubmit={handleSubmit}>
-            <Input name="name" label="Nombre" formik={formik} />
-            <Input name="surname" label="Apellido" formik={formik} />
-            <Input name="email" label="Email" type="email" formik={formik} />
-            <Input name="phone" label="Teléfono" formik={formik} />
-            <Input name="query" label="Consulta" as="textarea" rows={4} formik={formik} />
+        <form
+            className="contact-form"
+            // 🚫 evita que se recargue la página con ?name=...
+            onSubmit={(e) => {
+                e.preventDefault();
+                formik.handleSubmit(e);
+            }}>
+            <input
+                type="text"
+                name="name"
+                placeholder="Nombre"
+                value={formik.values.name}
+                onChange={formik.handleChange}/>
 
-            <div className="contact-form__actions">
-                <ButtonPrimary type="submit" disabled={isSubmitDisabled}>
-          Enviar
-                </ButtonPrimary>
-            </div>
+            <input
+                type="text"
+                name="surname"
+                placeholder="Apellido"
+                value={formik.values.surname}
+                onChange={formik.handleChange}/>
 
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formik.values.email}
+                onChange={formik.handleChange}/>
+
+            <input
+                type="text"
+                name="phone"
+                placeholder="Teléfono"
+                value={formik.values.phone}
+                onChange={formik.handleChange}/>
+
+            <textarea
+                name="query"
+                placeholder="Consulta"
+                value={formik.values.query}
+                onChange={formik.handleChange}/>
+
+            <ButtonPrimary type="submit">Enviar</ButtonPrimary>
+
+            {/* ✅ Cartel de confirmación */}
             <AlertSuccessForm
-                open={isSubmitted}
+                open={formik.status?.success || false}
                 message="Tu consulta fue enviada correctamente. Te responderemos en breve."
-                onClose={close}/>
+                onClose={() => formik.setStatus({ success: false })}/>
         </form>
     );
 };
