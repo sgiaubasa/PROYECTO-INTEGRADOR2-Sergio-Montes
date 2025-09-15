@@ -1,11 +1,9 @@
 @use "../../../scss/variables" as *;
 
-
-
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: $spacing-lg;
+    gap: $spacing-md;
     background-color: $color-neutro-100;
     padding: $spacing-lg;
     border: 1px solid $color-neutro-300;
