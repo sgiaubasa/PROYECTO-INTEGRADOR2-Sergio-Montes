@@ -1,36 +1,46 @@
+@use "@/scss/variables" as var;
+
 .search-product {
     display: flex;
     justify-content: center;
-    margin: 2rem auto;
-    max-width: 500px;
+    align-items: center;
+    gap: var.$spacing-sm;
+    margin: var.$spacing-md auto;
+    max-width: 600px;
 
     &__input {
         flex: 1;
-        padding: 0.75rem 1rem;
-        border: 1px solid #ccc;
-        border-radius: 0.5rem 0 0 0.5rem;
+        padding: var.$spacing-sm var.$spacing-md;
+        border: 2px solid var.$color-primary-500;
+        border-radius: 8px;
+        font-size: var.$font-size-md;
         outline: none;
-        font-size: 1rem;
-        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        transition: all 0.3s ease;
 
         &:focus {
-            border-color: #0077cc;
-            box-shadow: 0 0 6px rgba(0, 119, 204, 0.4);
+            border-color: var.$color-primary-700;
+            box-shadow: 0 0 6px var.$color-primary-300;
         }
     }
 
     &__button {
-        padding: 0.75rem 1.25rem;
+        background-color: var.$color-primary-600;
+        color: var.$color-neutro-100;
         border: none;
-        background-color: #0077cc;
-        color: #fff;
-        font-weight: bold;
-        border-radius: 0 0.5rem 0.5rem 0;
+        border-radius: 8px;
+        padding: var.$spacing-sm var.$spacing-lg;
+        font-size: var.$font-size-md;
+        font-weight: var.$font-weight-bold;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
 
         &:hover {
-            background-color: #005fa3;
+            background-color: var.$color-primary-700;
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(0.95);
         }
     }
 }

@@ -1,26 +1,39 @@
 @use "@/scss/variables" as var;
 
 .header {
-    grid-area: header;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var.$spacing-md var.$spacing-lg;
+    background-color: var.$color-primary-800;
+    color: var.$color-neutro-100;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: var.$color-primary-500;
-    padding: var.$spacing-sm;
 
-    :first-child {
-        grid-column: 2;
-        justify-content: center;
+    &__institution {
+        display: flex;
+        align-items: center;
+        gap: var.$spacing-sm;
     }
 
-    :last-child {
-        grid-column: 3;
-        justify-self: end;
-        align-self: start;
+
+    &__title-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: var.$font-size-xl;
+        font-weight: var.$font-weight-bold;
+        color: var.$color-neutro-100;
+        letter-spacing: 1px;
     }
 
-    &__title {
-        color: var.$color-neutro-200;
-        text-align: center;
+
+    &__shopping-cart {
+        margin-left: auto;
+        color: var.$color-neutro-100;
+
+        svg {
+            font-size: 2rem;
+        }
     }
 }

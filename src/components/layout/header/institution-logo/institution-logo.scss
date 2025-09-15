@@ -3,17 +3,20 @@
 .institution-logo {
     display: flex;
     align-items: center;
-    gap: var.$spacing-sm;
+    gap: var.$spacing-md;
 
     &__logo {
-        height: fit-content;
-        width: var.$font-size-xxl;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 2px 6px var.$color-dark-alpha-300;
     }
 
     &__title {
-        font-size: var.$font-size-xxl;
+        font-size: var.$font-size-xl;
         font-weight: var.$font-weight-bold;
-        text-transform: uppercase;
+        color: var.$color-neutro-100;
+        margin: 0;
     }
-
 }

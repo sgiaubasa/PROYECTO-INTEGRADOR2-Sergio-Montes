@@ -1,16 +1,19 @@
+@use "@/scss/variables" as var;
+
 .highlighted-products {
-    padding: 2rem;
+    padding: var.$spacing-xl;
     text-align: center;
 
     h2 {
-        margin-bottom: 1.5rem;
-        font-size: 1.8rem;
-        color: #222;
+        margin-bottom: var.$spacing-lg;
+        font-size: var.$font-size-xxl;
+        font-weight: var.$font-weight-bold;
+        color: var.$color-neutro-800;
     }
 
     .highlighted-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
+        gap: var.$spacing-lg;
     }
 }

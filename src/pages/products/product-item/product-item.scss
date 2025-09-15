@@ -1,93 +1,100 @@
 @use "@/scss/variables" as var;
 
 .product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 8px var.$color-dark-alpha-100;
+    background: var.$color-neutro-100;
+    transition: transform 0.2s ease;
+    min-height: 400px;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px var.$color-dark-alpha-300;
+    }
 
     &__image {
-        object-fit: cover;
-        height: auto;
         width: 100%;
-        aspect-ratio: 16/9;
-
-        &--skeleton {
-            height: auto;
-            width: 100%;
-            aspect-ratio: 16/9;
-            border-radius: 0 !important;
-            margin-bottom: var.$spacing-sm;
-        }
+        height: 180px;
+        object-fit: cover;
+        cursor: pointer;
     }
 
     &__content {
+        flex-grow: 1;
+        padding: var.$spacing-md;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: var.$spacing-sm;
-        padding: 0 var.$spacing-md;
     }
 
-    &__title {
+    &__name {
         font-size: var.$font-size-lg;
         font-weight: var.$font-weight-bold;
-
-        &--skeleton {
-            height: 35px;
-            width: 65%;
-        }
+        color: var.$color-primary-800;
+        margin-bottom: var.$spacing-xs;
     }
 
     &__description {
         font-size: var.$font-size-sm;
-        font-weight: var.$font-weight-regular;
-        text-align: justify;
-
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        text-overflow: ellipsis;
-        overflow: hidden;
-
-        &--skeleton {
-            height: 42px;
-            width: 100%;
-        }
+        color: var.$color-neutro-600;
+        margin-bottom: var.$spacing-sm;
+        flex-grow: 1;
     }
 
     &__price {
-        font-size: var.$font-size-sm;
+        font-size: var.$font-size-md;
         font-weight: var.$font-weight-bold;
-        align-self: flex-end;
-
-        &--skeleton {
-            height: 14px;
-            width: 50px;
-            align-self: flex-end;
-        }
+        color: var.$color-success-700;
     }
 
     &__actions {
         display: flex;
-        justify-content: center;
-        gap: var.$spacing-md;
-        padding: var.$spacing-md;
+        justify-content: space-around;
+        align-items: center;
+        padding: var.$spacing-sm;
+        border-top: 1px solid var.$color-neutro-300;
+        margin-top: auto;
 
-        &--skeleton {
-            width: 50px;
-            height: 24px;
-            line-height: 1.2;
+        button {
+            background: var.$color-neutro-100;
+            border: 1px solid var.$color-neutro-300;
+            border-radius: 50%;
+            padding: var.$spacing-sm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover {
+                background: var.$color-neutro-200;
+            }
+        }
+
+        .product-item__add {
+            color: var.$color-confirm-500;
+        }
+
+        .product-item__remove {
+            color: var.$color-warning-500;
+        }
+
+        .product-item__edit {
+            color: var.$color-confirm-700;
+        }
+
+        .product-item__delete {
+            color: var.$color-danger-500;
         }
     }
 
-    &__add {
-        svg {
-            font-size: var.$font-size-lg !important;
-        }
-    }
-
-    &__remove {
-        svg {
-            font-size: var.$font-size-lg !important;
-        }
+    &__nostock {
+        color: var.$color-danger-700;
+        font-weight: var.$font-weight-bold;
+        text-align: center;
+        padding: var.$spacing-sm;
     }
 }

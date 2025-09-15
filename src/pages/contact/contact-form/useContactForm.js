@@ -1,39 +1,25 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { initialValues } from "./contact-form.initial-value.js";
-import { validationSchema } from "./contact-form.validation-schema.js";
+import initialValues from "./contact-form.initial-value";
+import validationSchema from "./contact-form.validation-schema";
 
-const useContactForm = () => {
+export const useContactForm = () => {
     const [ isSubmitted, setIsSubmitted ] = useState(false);
 
     const formik = useFormik({
         initialValues,
         validationSchema,
-        validateOnChange: true,
-        validateOnBlur: true,
-        onSubmit: (values) => {
-            console.log("values", values);
-            formik.resetForm();
-            setIsSubmitted(true);
+        onSubmit: (values, { resetForm }) => {
+            console.log("Consulta enviada:", values); // 👈 debería salir en consola
+            setIsSubmitted(true); // 👈 activa la alerta
+            resetForm();
         },
     });
 
-    const isSubmitDisabled = () => {
-        return isSubmitted
-            || !formik.values.name
-            || !formik.values.surname
-            || !formik.values.email
-            || formik.values.phone?.length < 8
-            || formik.values.phone?.length > 15
-            || !formik.values.inquiry
-            || !formik.isValid;
+    const handleClose = () => {
+        console.log("Cerrando alerta..."); // 👈 debug
+        setIsSubmitted(false);
     };
 
-    return {
-        formik,
-        isSubmitDisabled,
-        isSubmitted,
-    };
-
+    return { formik, isSubmitted, handleClose };
 };
-export default useContactForm;

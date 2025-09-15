@@ -27,7 +27,6 @@ const ProductGallery = ({ products, onDeleteProduct }) => {
     );
 };
 
-// Validación estricta de props
 ProductGallery.propTypes = {
     products: PropTypes.arrayOf(
         PropTypes.shape({

@@ -12,7 +12,6 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             scss: {
-                // 👇 Esto le enseña a Sass a entender el alias "@"
                 includePaths: [path.resolve(__dirname, "src")],
             },
         },

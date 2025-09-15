@@ -5,7 +5,6 @@ import "./slider.scss";
 const Slider = ({ images, interval }) => {
     const [ currentIndex, setCurrentIndex ] = useState(0);
 
-    // Auto-slide
     useEffect(() => {
         const slideInterval = setInterval(() => {
             setCurrentIndex((prevIndex) =>
@@ -59,13 +58,11 @@ const Slider = ({ images, interval }) => {
     );
 };
 
-// ✅ Validación de props
 Slider.propTypes = {
     images: PropTypes.arrayOf(PropTypes.string).isRequired,
     interval: PropTypes.number,
 };
 
-// ✅ Valor por defecto (si no se pasa interval)
 Slider.defaultProps = {
     interval: 3000,
 };

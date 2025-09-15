@@ -29,9 +29,8 @@ const ProductItem = (props) => {
 
     const displayName = product.name || product.title || "Sin nombre";
 
-    // 🔧 (1) SIEMPRE me quedo con el nombre de archivo y lo codifico (soporta espacios)
     const rawThumb = product.thumbnail || product.image || "placeholder.png";
-    const thumbnailFile = String(rawThumb).split(/[/\\]/).pop(); // <-- limpia rutas
+    const thumbnailFile = String(rawThumb).split(/[/\\]/).pop();
     const imageSrc = `/images/products/${encodeURIComponent(thumbnailFile)}`;
 
     // DEBUGs
@@ -93,7 +92,6 @@ const ProductItem = (props) => {
                         src={imageSrc}
                         alt={displayName}
                         onClick={handleEditProduct}
-                        // 🔧 (2) FALLBACK si la imagen no existe
                         onError={(e) => {
                             e.currentTarget.onerror = null;
                             e.currentTarget.src = "/images/products/placeholder.png";
@@ -143,7 +141,7 @@ ProductItem.propTypes = {
         description: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         stock: PropTypes.number.isRequired,
-        thumbnail: PropTypes.string, // 👈 puede venir vacío
+        thumbnail: PropTypes.string,
         image: PropTypes.string,
     }),
     isLoading: PropTypes.bool.isRequired,

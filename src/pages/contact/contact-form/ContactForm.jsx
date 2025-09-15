@@ -1,39 +1,37 @@
 import AlertSuccessForm from "@/components/alerts/AlertSuccessForm";
 import { ButtonPrimary } from "@/components/buttons";
-import { InputEmail, InputInquiry, InputName, InputPhone, InputSurname } from "@/components/inputs";
-import PropTypes from "prop-types";
+import Input from "@/components/inputs/Input";
 import "./contact-form.scss";
 import useContactForm from "./useContactForm";
 
-const ContactForm = (props) => {
-    const { className, ...restProps } = props;
-    const classes = `contact-form ${className ?? ""}`;
+const ContactForm = () => {
+    const { formik, isSubmitted, isSubmitDisabled, close } = useContactForm();
 
-    const { formik, isSubmitted, isSubmitDisabled } = useContactForm();
+    const handleSubmit = (e) => {
+        e.preventDefault(); // ✅ Evita que el form navegue a /contact?...
+        formik.handleSubmit(e);
+    };
 
     return (
-        <form className={classes} onSubmit={formik.handleSubmit} {...restProps}>
-            <InputName formik={formik} />
-            <InputSurname formik={formik} />
-            <InputEmail formik={formik} />
-            <InputPhone formik={formik} />
-            <InputInquiry formik={formik} />
+        <form className="contact-form" onSubmit={handleSubmit}>
+            <Input name="name" label="Nombre" formik={formik} />
+            <Input name="surname" label="Apellido" formik={formik} />
+            <Input name="email" label="Email" type="email" formik={formik} />
+            <Input name="phone" label="Teléfono" formik={formik} />
+            <Input name="query" label="Consulta" as="textarea" rows={4} formik={formik} />
 
             <div className="contact-form__actions">
-                <ButtonPrimary type="submit" disabled={isSubmitDisabled()}>Enviar</ButtonPrimary>
+                <ButtonPrimary type="submit" disabled={isSubmitDisabled}>
+          Enviar
+                </ButtonPrimary>
             </div>
 
-            <div className="contact-form__alert">
-                <AlertSuccessForm
-                    open={isSubmitted}
-                    message="Tu consulta fue enviada correctamente."/>
-            </div>
+            <AlertSuccessForm
+                open={isSubmitted}
+                message="Tu consulta fue enviada correctamente. Te responderemos en breve."
+                onClose={close}/>
         </form>
     );
-};
-
-ContactForm.propTypes = {
-    className: PropTypes.string,
 };
 
 export default ContactForm;

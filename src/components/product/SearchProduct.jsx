@@ -1,5 +1,6 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
+import { useState } from "react";
+import "./SearchProduct.scss";
 
 const SearchProduct = ({ onSearch }) => {
     const [ query, setQuery ] = useState("");
@@ -7,7 +8,7 @@ const SearchProduct = ({ onSearch }) => {
     const handleChange = (e) => {
         const value = e.target.value;
         setQuery(value);
-        onSearch(value); // filtra en tiempo real
+        onSearch(value);
     };
 
     return (

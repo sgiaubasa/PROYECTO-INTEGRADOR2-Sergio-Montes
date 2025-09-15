@@ -2,23 +2,11 @@
 
 .product-gallery {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var.$spacing-md;
-    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var.$spacing-lg;
+    padding: var.$spacing-lg;
 
-    @media (max-width: 1200px) {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    @media (max-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (max-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 576px) {
-        grid-template-columns: 1fr;
+    .product-item {
+        min-height: 400px;
     }
 }

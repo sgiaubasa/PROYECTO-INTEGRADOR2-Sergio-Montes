@@ -8,7 +8,7 @@ import "./products.scss";
 
 const Products = () => {
     const { productsContext } = useContext(AppContext);
-    const { products, removeProduct } = productsContext; // 👈 usamos removeProduct
+    const { products, removeProduct } = productsContext;
 
     const [ filtered, setFiltered ] = useState([]);
     const navigate = useNavigate();
@@ -51,7 +51,7 @@ const Products = () => {
 
     const handleDeleteProduct = (id) => {
         if (window.confirm("¿Seguro que deseas eliminar este producto?")) {
-            removeProduct(id); // 👈 usamos removeProduct
+            removeProduct(id);
         }
     };
 
