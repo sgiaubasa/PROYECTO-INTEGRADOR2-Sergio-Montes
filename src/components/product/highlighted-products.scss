@@ -1,0 +1,16 @@
+.highlighted-products {
+    padding: 2rem;
+    text-align: center;
+
+    h2 {
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        color: #222;
+    }
+
+    .highlighted-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+}
