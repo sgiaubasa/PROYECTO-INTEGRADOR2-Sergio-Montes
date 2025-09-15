@@ -1,21 +1,141 @@
-@use "@/scss/variables" as var;
+@import "../../scss/variables";
+
 
 .contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var.$spacing-lg;
-    padding: var.$spacing-lg;
+    padding: $spacing-xl;
+    background-color: $color-neutro-100;
 
-    &__content {
-        display: flex;
-        justify-content: space-between;
+    &__title {
+        font-size: $font-size-xxl;
+        font-weight: $font-weight-bold;
+        color: $color-primary-800;
+        margin-bottom: $spacing-lg;
+        text-align: center;
     }
 
-    &__institution,
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-xl;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__data,
     &__form {
+        background: $color-neutro-200;
+        padding: $spacing-lg;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 10px $color-dark-alpha-100;
+    }
+
+    &__subtitle {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        color: $color-primary-700;
+        margin-bottom: $spacing-md;
+        border-bottom: 2px solid $color-primary-300;
+        padding-bottom: $spacing-xs;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        font-size: $font-size-md;
+        color: $color-neutro-700;
+        margin-bottom: $spacing-sm;
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+
+        i {
+            color: $color-primary-600;
+            font-size: $font-size-lg;
+        }
+
+        a {
+            color: $color-primary-700;
+            text-decoration: none;
+            font-weight: $font-weight-bold;
+
+            &:hover {
+                color: $color-primary-900;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    &__group {
         display: flex;
         flex-direction: column;
-        gap: var.$spacing-lg;
+        gap: $spacing-xs;
+
+        label {
+            font-size: $font-size-sm;
+            font-weight: $font-weight-bold;
+            color: $color-neutro-800;
+        }
+
+        input,
+        textarea {
+            padding: $spacing-sm;
+            border: 1px solid $color-neutro-400;
+            border-radius: 0.5rem;
+            font-size: $font-size-md;
+            line-height: $line-height-md;
+            transition: border 0.3s, box-shadow 0.3s;
+
+            &:focus {
+                border-color: $color-primary-500;
+                box-shadow: 0 0 0 3px $color-primary-200;
+                outline: none;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+    }
+
+    .btn {
+        align-self: flex-start;
+        padding: $spacing-sm $spacing-lg;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: $font-size-md;
+        font-weight: $font-weight-bold;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &--primary {
+            background-color: $color-primary-600;
+            color: $color-neutro-100;
+
+            &:hover {
+                background-color: $color-primary-700;
+            }
+        }
+
+        &--danger {
+            background-color: $color-danger-500;
+            color: $color-neutro-100;
+
+            &:hover {
+                background-color: $color-danger-700;
+            }
+        }
     }
 }

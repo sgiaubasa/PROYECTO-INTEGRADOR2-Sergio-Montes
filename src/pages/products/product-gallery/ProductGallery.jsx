@@ -2,7 +2,6 @@ import AppContext from "@/contexts/AppContext";
 import PropTypes from "prop-types";
 import { useContext } from "react";
 import ProductItem from "../product-item/ProductItem";
-import ProductNewItem from "../product-new-item/ProductNewItem";
 import "./product-gallery.scss";
 
 const ProductGallery = ({ products, onDeleteProduct }) => {
@@ -13,9 +12,6 @@ const ProductGallery = ({ products, onDeleteProduct }) => {
 
     return (
         <div className="product-gallery">
-            {/* Componente para crear un nuevo producto */}
-            <ProductNewItem />
-
             {displayProducts.length > 0 ? (
                 displayProducts.map((product) => (
                     <ProductItem
@@ -35,7 +31,8 @@ const ProductGallery = ({ products, onDeleteProduct }) => {
 ProductGallery.propTypes = {
     products: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
+            id: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ])
+                .isRequired,
             name: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             code: PropTypes.string,
@@ -45,7 +42,7 @@ ProductGallery.propTypes = {
             thumbnail: PropTypes.string,
         }),
     ).isRequired,
-    onDeleteProduct: PropTypes.func, // nueva prop
+    onDeleteProduct: PropTypes.func,
 };
 
 export default ProductGallery;

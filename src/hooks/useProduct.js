@@ -6,34 +6,30 @@ export const useProduct = () => {
     const [ isLoading, setIsLoading ] = useState(false);
     const [ error, setError ] = useState(null);
 
-    // 🔑 Normaliza cualquier producto que venga del API
+    const fileOnly = (v) => String(v || "").split(/[/\\]/).pop();
+
     const normalizeProduct = (p) => ({
         ...p,
-        name: p.name || p.title || "Sin nombre", // 👈 garantiza name
+        name: p.name || p.title || "Sin nombre",
         title: p.title || p.name || "Sin nombre",
-        code: p.code || `P-${p.id}`, // 👈 asegura un código
+        code: p.code || `P-${p.id}`,
         description: p.description || "",
-        price: p.price || 0,
-        stock: p.stock ?? 0,
-        // 👇 Solo el nombre del archivo (la ruta se arma en ProductItem.jsx)
-        thumbnail: p.thumbnail || "placeholder.png",
+        price: Number(p.price ?? 0),
+        stock: Number(p.stock ?? 0),
+        thumbnail: fileOnly(p.thumbnail || p.image) || "placeholder.png",
     });
 
     const fetchProducts = async () => {
         setIsLoading(true);
         setError(null);
-
         try {
             const data = await productsApi.fetchProducts();
-            // 🔑 normalizamos todo antes de guardarlo
-            const normalized = data.map(normalizeProduct);
-            console.debug("DEBUG useProduct → normalized products:", normalized);
+            const normalized = (data || []).map(normalizeProduct);
             setProducts(normalized);
-        } catch (error) {
+        } catch (err) {
             setProducts([]);
-            setError(error.message || "Error al cargar productos.");
+            setError(err?.message || "Error al cargar productos.");
         }
-
         setIsLoading(false);
     };
 
@@ -41,14 +37,12 @@ export const useProduct = () => {
         setIsLoading(true);
         setError(null);
         let product = null;
-
         try {
             product = await productsApi.fetchProductById(id);
-            product = product ? normalizeProduct(product) : null; // 👈 normalizado
-        } catch (error) {
-            setError(error.message || "Error al cargar producto.");
+            product = product ? normalizeProduct(product) : null;
+        } catch (err) {
+            setError(err?.message || "Error al cargar producto.");
         }
-
         setIsLoading(false);
         return product;
     };
@@ -57,19 +51,15 @@ export const useProduct = () => {
         setIsLoading(true);
         setError(null);
         let product = null;
-
         try {
-            product = await productsApi.createProduct(values);
+            // normalizo ANTES de enviar a la API (por si guardás la miniatura cruda)
+            const payload = { ...values, thumbnail: fileOnly(values.thumbnail) };
+            product = await productsApi.createProduct(payload);
             product = product ? normalizeProduct(product) : null;
-
-            if (product) {
-                // 👇 agrega el nuevo producto al estado
-                setProducts((prev) => [ ...prev, product ]);
-            }
-        } catch (error) {
-            setError(error.message || "Error al crear producto.");
+            if (product) setProducts((prev) => [ ...prev, product ]);
+        } catch (err) {
+            setError(err?.message || "Error al crear producto.");
         }
-
         setIsLoading(false);
         return product;
     };
@@ -78,21 +68,16 @@ export const useProduct = () => {
         setIsLoading(true);
         setError(null);
         let product = null;
-
         try {
-            product = await productsApi.updateProduct(id, values);
+            const payload = { ...values, thumbnail: fileOnly(values.thumbnail) };
+            product = await productsApi.updateProduct(id, payload);
             product = product ? normalizeProduct(product) : null;
-
             if (product) {
-                // 👇 reemplaza el producto en el estado
-                setProducts((prev) =>
-                    prev.map((p) => (p.id === id ? product : p)),
-                );
+                setProducts((prev) => prev.map((p) => (p.id === id ? product : p)));
             }
-        } catch (error) {
-            setError(error.message || "Error al modificar producto.");
+        } catch (err) {
+            setError(err?.message || "Error al modificar producto.");
         }
-
         setIsLoading(false);
         return product;
     };
@@ -100,18 +85,12 @@ export const useProduct = () => {
     const removeProduct = async (id) => {
         setIsLoading(true);
         setError(null);
-
         try {
             await productsApi.removeProduct(id);
-
-            // ✅ elimina el producto del estado local
             setProducts((prev) => prev.filter((p) => p.id !== id));
-
-            console.debug(`DEBUG useProduct → producto ${id} eliminado`);
-        } catch (error) {
-            setError(error.message || "Error al eliminar producto.");
+        } catch (err) {
+            setError(err?.message || "Error al eliminar producto.");
         }
-
         setIsLoading(false);
     };
 
@@ -119,13 +98,11 @@ export const useProduct = () => {
         setIsLoading(true);
         setError(null);
         let result = false;
-
         try {
             result = await productsApi.checkProductStock(id);
-        } catch (error) {
-            setError(error.message || "Error al chequear stock de producto.");
+        } catch (err) {
+            setError(err?.message || "Error al chequear stock de producto.");
         }
-
         setIsLoading(false);
         return result;
     };

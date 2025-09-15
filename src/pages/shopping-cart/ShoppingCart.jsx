@@ -22,9 +22,8 @@ const ShoppingCart = () => {
             <Table>
                 <TableHead>
                     <TableRow className="table__head">
-                        <TableCell>Imagen</TableCell>
+                        <TableCell>ID</TableCell>
                         <TableCell>Producto</TableCell>
-                        <TableCell>Código</TableCell>
                         <TableCell align="right">Cant.</TableCell>
                         <TableCell align="right">Precio</TableCell>
                         <TableCell align="right">Importe</TableCell>
@@ -34,16 +33,8 @@ const ShoppingCart = () => {
                 <TableBody>
                     {shoppingCart.articles?.map((article) => (
                         <TableRow key={article.id} className="table__body">
-                            <TableCell>
-                                <img
-                                    src={`/images/products/${article.thumbnail}`}
-                                    alt={article.name}
-                                    width="50"
-                                    height="50"
-                                    style={{ objectFit: "cover", borderRadius: "6px" }}/>
-                            </TableCell>
+                            <TableCell>{article.id}</TableCell>
                             <TableCell>{article.name}</TableCell>
-                            <TableCell>{article.code}</TableCell>
                             <TableCell align="right">
                                 <button onClick={() => subtractArticle(article.id, 1)}>-</button>
                                 <span style={{ margin: "0 8px" }}>{article.quantity}</span>

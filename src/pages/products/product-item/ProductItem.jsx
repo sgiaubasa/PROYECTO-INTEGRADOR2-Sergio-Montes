@@ -17,7 +17,7 @@ const ProductItem = (props) => {
         product,
         isLoading,
         className,
-        onDelete, // 👉 prop opcional que viene desde ProductGallery
+        onDelete,
         ...restProps
     } = props;
 
@@ -27,13 +27,14 @@ const ProductItem = (props) => {
 
     const classes = `product-item ${className ?? ""}`;
 
-    // ✅ usamos siempre name si existe, si no title
     const displayName = product.name || product.title || "Sin nombre";
 
-    // 🔎 ruta final de la imagen (resuelve placeholder si falta)
-    const imageSrc = `/images/products/${product.thumbnail || "placeholder.png"}`;
+    // 🔧 (1) SIEMPRE me quedo con el nombre de archivo y lo codifico (soporta espacios)
+    const rawThumb = product.thumbnail || product.image || "placeholder.png";
+    const thumbnailFile = String(rawThumb).split(/[/\\]/).pop(); // <-- limpia rutas
+    const imageSrc = `/images/products/${encodeURIComponent(thumbnailFile)}`;
 
-    // 🔎 DEBUG: ver qué datos llegan realmente
+    // DEBUGs
     console.log("DEBUG ProductItem → recibido:", product);
     console.log("DEBUG ProductItem → imagen src:", imageSrc);
 
@@ -41,20 +42,14 @@ const ProductItem = (props) => {
         navigate(`/products/${product.id}`);
     };
 
-    const handleAddArticle = () => {
-        addArticle(product.id, 1);
-    };
-
-    const handleSubtractArticle = () => {
-        subtractArticle(product.id, 1);
-    };
+    const handleAddArticle = () => addArticle(product.id, 1);
+    const handleSubtractArticle = () => subtractArticle(product.id, 1);
 
     const handleDeleteProduct = () => {
         if (window.confirm("¿Seguro que deseas eliminar este producto?")) {
             if (onDelete) {
                 onDelete(product.id);
             } else {
-                // fallback: dispara evento global
                 window.dispatchEvent(
                     new CustomEvent("delete-product", { detail: { id: product.id } }),
                 );
@@ -63,13 +58,8 @@ const ProductItem = (props) => {
     };
 
     const renderActions = () => {
-        // 👇 nos aseguramos de comparar como número
-        if (Number(product.stock) <= 0) {
-            return (
-                <Text variant="p" className="product-item__nostock">
-                    SIN STOCK
-                </Text>
-            );
+        if (product.stock === 0) {
+            return <Text variant="p" className="product-item__nostock">SIN STOCK</Text>;
         }
 
         return (
@@ -102,7 +92,12 @@ const ProductItem = (props) => {
                         className="product-item__image"
                         src={imageSrc}
                         alt={displayName}
-                        onClick={handleEditProduct}/>
+                        onClick={handleEditProduct}
+                        // 🔧 (2) FALLBACK si la imagen no existe
+                        onError={(e) => {
+                            e.currentTarget.onerror = null;
+                            e.currentTarget.src = "/images/products/placeholder.png";
+                        }}/>
                 </CardActionArea>
             </Skeleton>
 
@@ -111,11 +106,13 @@ const ProductItem = (props) => {
                     <Text className="product-item__name" variant="h3">{displayName}</Text>
                 </Skeleton>
                 <Skeleton className="product-item__description--skeleton" isLoading={isLoading}>
-                    <Text className="product-item__description" variant="p">{product.description}</Text>
+                    <Text className="product-item__description" variant="p">
+                        {product.description}
+                    </Text>
                 </Skeleton>
                 <Skeleton className="product-item__price--skeleton" isLoading={isLoading}>
                     <Text className="product-item__price" variant="span">
-                        ${product.price.toFixed(2)}
+            ${Number(product.price ?? 0).toFixed(2)}
                     </Text>
                 </Skeleton>
             </div>
@@ -123,20 +120,13 @@ const ProductItem = (props) => {
             <div className="product-item__actions">
                 {renderActions()}
 
-                {/* Botones de gestión del producto */}
                 <Skeleton className="product-item__actions--skeleton" isLoading={isLoading}>
-                    <ButtonPrimary
-                        className="product-item__edit"
-                        size="sm"
-                        onClick={handleEditProduct}>
+                    <ButtonPrimary className="product-item__edit" size="sm" onClick={handleEditProduct}>
                         <EditIcon/>
                     </ButtonPrimary>
                 </Skeleton>
                 <Skeleton className="product-item__actions--skeleton" isLoading={isLoading}>
-                    <ButtonPrimary
-                        className="product-item__delete"
-                        size="sm"
-                        onClick={handleDeleteProduct}>
+                    <ButtonPrimary className="product-item__delete" size="sm" onClick={handleDeleteProduct}>
                         <DeleteIcon/>
                     </ButtonPrimary>
                 </Skeleton>
@@ -152,8 +142,9 @@ ProductItem.propTypes = {
         title: PropTypes.string,
         description: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
-        stock: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
-        thumbnail: PropTypes.string.isRequired,
+        stock: PropTypes.number.isRequired,
+        thumbnail: PropTypes.string, // 👈 puede venir vacío
+        image: PropTypes.string,
     }),
     isLoading: PropTypes.bool.isRequired,
     className: PropTypes.string,
