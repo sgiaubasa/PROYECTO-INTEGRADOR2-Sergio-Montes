@@ -70,9 +70,35 @@
         }
     }
 
-    // estado de éxito (puede ser para la alerta)
     &.success {
         border-color: $color-success-500;
         box-shadow: 0 0 0 2px $color-success-100;
+    }
+
+    /* 🔹 ESTILOS EXTRA (sumados) */
+    h2 {
+        margin-bottom: $spacing-md;
+        padding-bottom: $spacing-xs;
+        border-bottom: 1px solid $color-neutro-300;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        color: $color-primary-700;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs;
+
+        label {
+            font-size: $font-size-sm;
+            font-weight: $font-weight-bold;
+            color: $color-neutro-700;
+        }
+    }
+
+    input,
+    textarea {
+        width: 100%;
     }
 }

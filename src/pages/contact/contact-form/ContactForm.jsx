@@ -1,77 +1,92 @@
 import AlertSuccessForm from "@/components/alerts/AlertSuccessForm";
 import { ButtonPrimary } from "@/components/buttons";
-import { useFormik } from "formik";
-import initialValues from "./contact-form.initial-value";
 import "./contact-form.scss";
-import contactFormSchema from "./contact-form.validation-schema";
+import { useContactForm } from "./useContactForm.js";
 
 const ContactForm = () => {
-    const formik = useFormik({
-        initialValues,
-        validationSchema: contactFormSchema,
-        onSubmit: (values, { resetForm, setStatus }) => {
-            console.log("✅ Datos enviados:", values);
-
-            // 👉 activa la alerta
-            setStatus({ success: true });
-
-            // la cerramos a los 3 segundos y limpiamos el form
-            setTimeout(() => {
-                resetForm();
-                setStatus({ success: false });
-            }, 3000);
-        },
-    });
+    const { formik, isSubmitted, handleClose } = useContactForm();
 
     return (
         <form
             className="contact-form"
-            // 🚫 evita que se recargue la página con ?name=...
             onSubmit={(e) => {
                 e.preventDefault();
                 formik.handleSubmit(e);
             }}>
-            <input
-                type="text"
-                name="name"
-                placeholder="Nombre"
-                value={formik.values.name}
-                onChange={formik.handleChange}/>
+            <h2>Formulario de consulta</h2>
 
-            <input
-                type="text"
-                name="surname"
-                placeholder="Apellido"
-                value={formik.values.surname}
-                onChange={formik.handleChange}/>
+            {/* Nombre */}
+            <div className="form-group">
+                <label htmlFor="name">Nombre:</label>
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Ingresa tu nombre"
+                    value={formik.values.name}
+                    onChange={formik.handleChange}/>
+                {formik.errors.name && <span className="error">{formik.errors.name}</span>}
+            </div>
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formik.values.email}
-                onChange={formik.handleChange}/>
+            {/* Apellido */}
+            <div className="form-group">
+                <label htmlFor="surname">Apellido:</label>
+                <input
+                    id="surname"
+                    type="text"
+                    name="surname"
+                    placeholder="Ingresa tu apellido"
+                    value={formik.values.surname}
+                    onChange={formik.handleChange}/>
+                {formik.errors.surname && <span className="error">{formik.errors.surname}</span>}
+            </div>
 
-            <input
-                type="text"
-                name="phone"
-                placeholder="Teléfono"
-                value={formik.values.phone}
-                onChange={formik.handleChange}/>
+            {/* Email */}
+            <div className="form-group">
+                <label htmlFor="email">Email:</label>
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Ingresa tu correo electrónico"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}/>
+                {formik.errors.email && <span className="error">{formik.errors.email}</span>}
+            </div>
 
-            <textarea
-                name="query"
-                placeholder="Consulta"
-                value={formik.values.query}
-                onChange={formik.handleChange}/>
+            {/* Teléfono */}
+            <div className="form-group">
+                <label htmlFor="phone">Teléfono:</label>
+                <input
+                    id="phone"
+                    type="text"
+                    name="phone"
+                    placeholder="Ingresa tu número telefónico"
+                    value={formik.values.phone}
+                    onChange={formik.handleChange}/>
+                {formik.errors.phone && <span className="error">{formik.errors.phone}</span>}
+            </div>
 
+            {/* Consulta */}
+            <div className="form-group">
+                <label htmlFor="inquiry">Consulta:</label>
+                <textarea
+                    id="inquiry"
+                    name="inquiry"
+                    placeholder="Ingresa tu consulta"
+                    value={formik.values.inquiry}
+                    onChange={formik.handleChange}/>
+                {formik.errors.inquiry && <span className="error">{formik.errors.inquiry}</span>}
+            </div>
+
+            {/* Botón */}
             <ButtonPrimary type="submit">Enviar</ButtonPrimary>
 
             {/* ✅ Cartel de confirmación */}
             <AlertSuccessForm
-                open={formik.status?.success || false}
+                open={isSubmitted}
                 message="Tu consulta fue enviada correctamente. Te responderemos en breve."
-                onClose={() => formik.setStatus({ success: false })}/>
+                onClose={handleClose}/>
         </form>
     );
 };

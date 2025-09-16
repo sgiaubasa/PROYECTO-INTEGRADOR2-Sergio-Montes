@@ -1,4 +1,5 @@
 import { Text } from "@/components/texts";
+import ContactForm from "./contact-form/ContactForm.jsx";
 import "./contact.scss";
 
 const Contact = () => {
@@ -32,35 +33,7 @@ const Contact = () => {
 
                 <article className="contact__form">
                     <Text className="contact__subtitle" variant="h3">Formulario de consulta</Text>
-
-                    <form className="form">
-                        <div className="form__group">
-                            <label htmlFor="id-name">Nombre:</label>
-                            <input type="text" id="id-name" name="name" placeholder="Ingresa tu nombre" required />
-                        </div>
-
-                        <div className="form__group">
-                            <label htmlFor="id-surname">Apellido:</label>
-                            <input type="text" id="id-surname" name="surname" placeholder="Ingresa tu apellido" required />
-                        </div>
-
-                        <div className="form__group">
-                            <label htmlFor="id-email">Email:</label>
-                            <input type="email" id="id-email" name="email" placeholder="Ingresa tu correo electrónico" required />
-                        </div>
-
-                        <div className="form__group">
-                            <label htmlFor="id-phone">Teléfono:</label>
-                            <input type="tel" id="id-phone" name="phone" placeholder="Ingresa tu número telefónico" required />
-                        </div>
-
-                        <div className="form__group">
-                            <label htmlFor="id-query">Consulta:</label>
-                            <textarea id="id-query" name="query" rows="5" placeholder="Ingresa tu consulta"></textarea>
-                        </div>
-
-                        <button type="submit" className="btn btn--primary">Enviar</button>
-                    </form>
+                    <ContactForm />
                 </article>
             </div>
         </section>
