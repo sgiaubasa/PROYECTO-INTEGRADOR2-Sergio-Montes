@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "../../scss/variables" as *;
 
 .alert {
     &__content {
@@ -8,37 +8,37 @@
 
         width: fit-content;
         min-width: 300px;
-        padding: 0 var.$spacing-sm;
+        padding: 0 $spacing-md;
 
-        background-color: var.$color-neutro-100;
-        border: 1px solid var.$color-neutro-500;
+        background-color: $color-ak-light; 
+        border: 1px solid $color-ak-accent-500; 
         border-radius: 0.25rem;
     }
 
     &__message,
     &__icon {
-        font-size: var.$font-size-md !important;
-        color: var.$color-neutro-700;
+        font-size: $font-size-md !important;
+        color: $color-ak-neutral-800; 
     }
 
     &--success &__message,
     &--success &__icon {
-        color: var.$color-success-700;
+        color: $color-ak-primary-500; 
     }
 
     &--danger &__message,
     &--danger &__icon {
-        color: var.$color-danger-700;
+        color: $color-danger-700;
     }
 
     &--success &__content {
-        background-color: var.$color-success-100;
-        border-color: var.$color-success-500;
+        background-color: $color-ak-light; 
+        border-color: $color-ak-accent-500; 
     }
 
     &--danger &__content {
-        background-color: var.$color-danger-100;
-        border-color: var.$color-danger-500;
+        background-color: $color-danger-100;
+        border-color: $color-danger-500;
     }
 
     &--success-form {

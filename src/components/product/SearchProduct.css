@@ -1,0 +1,46 @@
+.search-product {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem auto;
+  max-width: 600px;
+}
+.search-product__input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 2px solid #184C4E;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.search-product__input:focus {
+  border-color: #1a5a53;
+  box-shadow: 0 0 6px #7cb6b0;
+}
+.search-product__button {
+  background-color: #123C3C;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.search-product__button:hover {
+  background-color: #1a5a53;
+  transform: scale(1.05);
+}
+.search-product__button:active {
+  background-color: #0d3f49;
+  transform: scale(0.95);
+}
+.search-product__button:disabled {
+  background-color: #dee2e6;
+  color: #495057;
+  cursor: not-allowed;
+  transform: none;
+}/*# sourceMappingURL=SearchProduct.css.map */

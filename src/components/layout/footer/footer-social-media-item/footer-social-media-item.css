@@ -1,0 +1,22 @@
+.footer-social-media-item {
+  height: 2rem;
+  width: 2rem;
+  padding-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #F9F6F2;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+.footer-social-media-item:hover {
+  border-color: #D6A163;
+}
+.footer-social-media-item:hover .footer-social-media-item__icon {
+  fill: #D6A163;
+}
+.footer-social-media-item__icon {
+  width: 1.25rem;
+  fill: #F9F6F2;
+  transition: fill 0.2s ease;
+}/*# sourceMappingURL=footer-social-media-item.css.map */

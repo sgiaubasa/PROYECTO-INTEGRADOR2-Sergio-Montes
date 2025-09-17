@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "@/../../../scss/variables" as var;
 
 .search-product {
     display: flex;
@@ -11,20 +11,20 @@
     &__input {
         flex: 1;
         padding: var.$spacing-sm var.$spacing-md;
-        border: 2px solid var.$color-primary-500;
+        border: 2px solid var.$color-ak-primary-500; 
         border-radius: 8px;
         font-size: var.$font-size-md;
         outline: none;
         transition: all 0.3s ease;
 
         &:focus {
-            border-color: var.$color-primary-700;
-            box-shadow: 0 0 6px var.$color-primary-300;
+            border-color: var.$color-ak-primary-700;   
+            box-shadow: 0 0 6px var.$color-ak-primary-300; 
         }
     }
 
     &__button {
-        background-color: var.$color-primary-600;
+        background-color: var.$color-ak-primary-600;
         color: var.$color-neutro-100;
         border: none;
         border-radius: 8px;
@@ -35,12 +35,20 @@
         transition: all 0.3s ease;
 
         &:hover {
-            background-color: var.$color-primary-700;
+            background-color: var.$color-ak-primary-700;
             transform: scale(1.05);
         }
 
         &:active {
+            background-color: var.$color-ak-primary-800;
             transform: scale(0.95);
+        }
+
+        &:disabled {
+            background-color: var.$color-neutro-400;
+            color: var.$color-neutro-700;
+            cursor: not-allowed;
+            transform: none;
         }
     }
 }

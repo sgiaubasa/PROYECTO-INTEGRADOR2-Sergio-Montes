@@ -13,7 +13,6 @@ const ContactForm = () => {
                 e.preventDefault();
                 formik.handleSubmit(e);
             }}>
-            <h2>Formulario de consulta</h2>
 
             {/* Nombre */}
             <div className="form-group">

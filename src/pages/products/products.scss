@@ -1,6 +1,5 @@
 @use "../../scss/variables" as var;
 
-
 .products-page {
     padding: var.$spacing-xl;
     max-width: 1200px;
@@ -9,9 +8,20 @@
     h2 {
         font-size: var.$font-size-xxl;
         font-weight: var.$font-weight-bold;
-        color: var.$color-primary-800;
-        margin-bottom: var.$spacing-md;
+        color: var.$color-ak-primary-800; 
         text-align: center;
+        position: relative;
+
+        
+        &::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            margin: var.$spacing-sm auto 0;
+            background: var.$color-ak-primary-500;
+            border-radius: 2px;
+        }
     }
 
     hr {
@@ -35,15 +45,17 @@
             transition: all 0.3s ease;
 
             &--primary {
-                background-color: var.$color-primary-600;
+                background-color: var.$color-ak-primary-600; 
                 color: var.$color-neutro-100;
 
                 &:hover {
-                    background-color: var.$color-primary-700;
+                    background-color: var.$color-ak-primary-700;
+                    transform: translateY(-2px);
                 }
 
                 &:active {
-                    background-color: var.$color-primary-800;
+                    background-color: var.$color-ak-primary-800;
+                    transform: translateY(0);
                 }
             }
         }
@@ -56,3 +68,4 @@
         margin-top: var.$spacing-lg;
     }
 }
+

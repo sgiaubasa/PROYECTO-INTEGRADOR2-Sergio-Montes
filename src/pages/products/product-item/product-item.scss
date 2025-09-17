@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "@/../../../../scss/variables" as var;
 
 .product-item {
     display: flex;
@@ -33,7 +33,7 @@
     &__name {
         font-size: var.$font-size-lg;
         font-weight: var.$font-weight-bold;
-        color: var.$color-primary-800;
+        color: var.$color-ak-primary-800; 
         margin-bottom: var.$spacing-xs;
     }
 
@@ -70,7 +70,8 @@
             transition: all 0.2s ease;
 
             &:hover {
-                background: var.$color-neutro-200;
+                background: var.$color-ak-primary-100; 
+                border-color: var.$color-ak-primary-300;
             }
         }
 
@@ -83,7 +84,7 @@
         }
 
         .product-item__edit {
-            color: var.$color-confirm-700;
+            color: var.$color-ak-primary-600; 
         }
 
         .product-item__delete {

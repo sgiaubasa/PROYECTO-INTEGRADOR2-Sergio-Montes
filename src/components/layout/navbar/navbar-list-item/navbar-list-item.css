@@ -1,0 +1,33 @@
+.navbar-list-item__link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.navbar-list-item__icon {
+  display: none !important;
+  color: #184C4E;
+  transition: color 0.2s ease;
+}
+.navbar-list-item__label {
+  color: #3E2723;
+  font-size: 1rem;
+  font-weight: inherit;
+  transition: color 0.2s ease;
+}
+.navbar-list-item:hover, .navbar-list-item--active {
+  font-weight: 700;
+}
+.navbar-list-item:hover .navbar-list-item__label, .navbar-list-item--active .navbar-list-item__label {
+  color: #D6A163;
+}
+.navbar-list-item:hover .navbar-list-item__icon, .navbar-list-item--active .navbar-list-item__icon {
+  color: #D6A163;
+}
+@media screen and (max-width: 768px) {
+  .navbar-list-item__icon {
+    display: block !important;
+  }
+}/*# sourceMappingURL=navbar-list-item.css.map */

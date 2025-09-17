@@ -1,19 +1,38 @@
-@use "@/scss/variables" as var;
+@use "@/../../../../scss/variables" as var;
 
 .navbar {
     grid-area: navbar;
 
     padding: var.$spacing-sm !important;
-    background-color: var.$color-primary-300;
+    background-color: var.$color-ak-primary-100; 
 
     &__menu-icon,
     &__menu-drawer {
-        color: var.$color-primary-700;
+        color: var.$color-ak-neutral-800; 
         display: none !important;
+
+        &:hover {
+            color: var.$color-ak-accent-500; 
+        }
+    }
+
+    &__menu-list {
+        display: flex;
+        gap: var.$spacing-md;
+
+        a {
+            color: var.$color-ak-neutral-800; 
+            font-weight: var.$font-weight-bold;
+            text-decoration: none;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: var.$color-ak-primary-500;
+            }
+        }
     }
 
     @media (max-width: 768px) {
-
         &__menu-icon,
         &__menu-drawer {
             display: block !important;

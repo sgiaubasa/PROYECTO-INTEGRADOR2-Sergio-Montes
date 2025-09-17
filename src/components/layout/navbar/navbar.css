@@ -1,0 +1,33 @@
+.navbar {
+  grid-area: navbar;
+  padding: 0.5rem !important;
+  background-color: #E3F2F2;
+}
+.navbar__menu-icon, .navbar__menu-drawer {
+  color: #3E2723;
+  display: none !important;
+}
+.navbar__menu-icon:hover, .navbar__menu-drawer:hover {
+  color: #D6A163;
+}
+.navbar__menu-list {
+  display: flex;
+  gap: 1rem;
+}
+.navbar__menu-list a {
+  color: #3E2723;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.navbar__menu-list a:hover {
+  color: #184C4E;
+}
+@media (max-width: 768px) {
+  .navbar__menu-icon, .navbar__menu-drawer {
+    display: block !important;
+  }
+  .navbar__menu-list {
+    display: none !important;
+  }
+}/*# sourceMappingURL=navbar.css.map */

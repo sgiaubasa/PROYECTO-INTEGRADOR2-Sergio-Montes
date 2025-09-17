@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "@/../../../scss/variables" as var;
 
 .input {
     position: relative;
@@ -7,14 +7,15 @@
     &__helper-text {
         position: absolute;
         bottom: -1.25rem;
+        font-size: var.$font-size-sm;
+        color: var.$color-neutro-600;
     }
 
     &--valid {
-
         p,
         label,
         label.Mui-focused {
-            color: var.$color-primary-800 !important;
+            color: var.$color-ak-primary-800 !important; // 🔹 AK palette
         }
 
         div input+fieldset,
@@ -23,12 +24,11 @@
         div input:focus+fieldset,
         div input:focus~.MuiOutlinedInput-notchedOutline,
         div textarea:focus~.MuiOutlinedInput-notchedOutline {
-            border-color: var.$color-primary-800 !important;
+            border-color: var.$color-ak-primary-800 !important; // 🔹 AK palette
         }
     }
 
     &--invalid {
-
         p,
         label,
         label.Mui-focused {

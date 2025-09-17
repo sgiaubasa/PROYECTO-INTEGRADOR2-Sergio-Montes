@@ -1,0 +1,1 @@
+{"version":3,"sources":["institution-item.scss","../../../scss/_variables.scss","institution-item.css"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,sBAAA;EACA,YCkES;ACnEb;AFGI;EACI,cCuEe;EDtEf,eC6CO;ED5CP,gBCmDW;ACpDnB;AFII;EACI,cCGW;EDFX,eCuCO;EDtCP,gBC4Cc;AC9CtB","file":"institution-item.css"}

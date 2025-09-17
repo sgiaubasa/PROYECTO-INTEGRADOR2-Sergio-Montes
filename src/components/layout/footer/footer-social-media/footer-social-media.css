@@ -1,0 +1,20 @@
+.footer-social-media {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.footer-social-media__title {
+  color: #F9F6F2;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.footer-social-media__title:hover {
+  color: #D6A163;
+}
+.footer-social-media__list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding-left: 0.25rem;
+}/*# sourceMappingURL=footer-social-media.css.map */

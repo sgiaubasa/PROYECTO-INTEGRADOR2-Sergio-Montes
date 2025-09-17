@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "@/../../../../scss/variables" as var;
 
 .institution-item {
     display: flex;
@@ -6,7 +6,7 @@
     gap: var.$spacing-xs;
 
     &__label {
-        color: var.$color-neutro-700;
+        color: var.$color-ak-primary-600;
         font-size: var.$font-size-md;
         font-weight: var.$font-weight-bold;
     }

@@ -1,79 +1,79 @@
-@use "@/scss/variables" as *;
+@use "../../scss/variables" as var;
 
 .shopping-cart {
-    background-color: $color-neutro-100;
-    padding: $spacing-lg;
+    background-color: var.$color-ak-light; 
+    padding: var.$spacing-lg;
     border-radius: 12px;
-    box-shadow: 0 2px 6px $color-dark-alpha-100;
+    box-shadow: 0 2px 6px var.$color-dark-alpha-100;
 
     h2 {
-        font-size: $font-size-xl;
-        font-weight: $font-weight-bold;
-        color: $color-primary-800;
-        margin-bottom: $spacing-md;
+        font-size: var.$font-size-xl;
+        font-weight: var.$font-weight-bold;
+        color: var.$color-ak-primary-500; 
+        margin-bottom: var.$spacing-md;
         text-align: center;
     }
 
     table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: $spacing-md;
+        margin-bottom: var.$spacing-md;
 
         thead {
-            background-color: $color-primary-200;
+            background-color: var.$color-ak-primary-100; 
 
             th {
-                font-size: $font-size-sm;
-                font-weight: $font-weight-bold;
-                color: $color-primary-900;
+                font-size: var.$font-size-sm;
+                font-weight: var.$font-weight-bold;
+                color: var.$color-ak-primary-600; 
                 text-transform: uppercase;
-                padding: $spacing-sm;
-                border-bottom: 2px solid $color-primary-400;
+                padding: var.$spacing-sm;
+                border-bottom: 2px solid var.$color-ak-primary-300; 
             }
         }
 
         tbody {
             tr {
                 &:nth-child(even) {
-                    background-color: $color-neutro-200;
+                    background-color: var.$color-neutro-200; 
                 }
 
                 td {
-                    padding: $spacing-sm;
-                    font-size: $font-size-md;
-                    color: $color-neutro-800;
+                    padding: var.$spacing-sm;
+                    font-size: var.$font-size-md;
+                    color: var.$color-ak-neutral-800; 
                     vertical-align: middle;
                 }
 
                 button {
                     background: none;
-                    border: 1px solid $color-primary-500;
+                    border: 1px solid var.$color-ak-primary-500; 
                     border-radius: 6px;
-                    padding: $spacing-xs $spacing-sm;
-                    margin: 0 $spacing-xs;
+                    padding: var.$spacing-xs var.$spacing-sm;
+                    margin: 0 var.$spacing-xs;
                     cursor: pointer;
-                    font-size: $font-size-sm;
+                    font-size: var.$font-size-sm;
                     transition: background 0.2s, color 0.2s;
 
                     &:hover {
-                        background-color: $color-primary-500;
-                        color: $color-neutro-100;
+                        background-color: var.$color-ak-primary-500;
+                        color: var.$color-neutro-100;
                     }
 
                     &:disabled {
-                        border-color: $color-neutro-400;
-                        color: $color-neutro-500;
+                        border-color: var.$color-neutro-400;
+                        color: var.$color-neutro-500;
                         cursor: not-allowed;
                     }
                 }
 
                 .btn-remove {
-                    border-color: $color-danger-500;
-                    color: $color-danger-700;
+                    border-color: var.$color-danger-500;
+                    color: var.$color-danger-700;
 
                     &:hover {
-                        background-color: $color-danger-500;
-                        color: $color-neutro-100;
+                        background-color: var.$color-danger-500;
+                        color: var.$color-neutro-100;
                     }
                 }
             }
@@ -81,56 +81,56 @@
 
         tfoot {
             td {
-                font-weight: $font-weight-bold;
-                font-size: $font-size-md;
-                padding: $spacing-sm;
-                color: $color-primary-900;
+                font-weight: var.$font-weight-bold;
+                font-size: var.$font-size-md;
+                padding: var.$spacing-sm;
+                color: var.$color-ak-primary-600; 
             }
         }
     }
 
     .table__footer {
         text-align: right;
-        margin-top: $spacing-sm;
+        margin-top: var.$spacing-sm;
 
         .table__total {
-            font-size: $font-size-lg;
-            font-weight: $font-weight-bold;
-            color: $color-primary-800;
+            font-size: var.$font-size-lg;
+            font-weight: var.$font-weight-bold;
+            color: var.$color-ak-accent-500; 
         }
     }
 
     .cart__actions {
         display: flex;
         justify-content: flex-end;
-        gap: $spacing-md;
-        margin-top: $spacing-md;
+        gap: var.$spacing-md;
+        margin-top: var.$spacing-md;
 
         .btn {
-            padding: $spacing-sm $spacing-md;
-            font-size: $font-size-md;
-            font-weight: $font-weight-bold;
+            padding: var.$spacing-sm var.$spacing-md;
+            font-size: var.$font-size-md;
+            font-weight: var.$font-weight-bold;
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.2s;
 
             &--primary {
-                background-color: $color-confirm-500;
-                color: $color-neutro-100;
+                background-color: var.$color-ak-primary-500; 
+                color: var.$color-neutro-100;
                 border: none;
 
                 &:hover {
-                    background-color: $color-confirm-700;
+                    background-color: var.$color-ak-primary-600;
                 }
             }
 
             &--danger {
-                background-color: $color-danger-500;
-                color: $color-neutro-100;
+                background-color: var.$color-danger-500;
+                color: var.$color-neutro-100;
                 border: none;
 
                 &:hover {
-                    background-color: $color-danger-700;
+                    background-color: var.$color-danger-700;
                 }
             }
         }

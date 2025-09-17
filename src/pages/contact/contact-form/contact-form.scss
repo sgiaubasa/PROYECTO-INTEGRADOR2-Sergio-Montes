@@ -4,27 +4,27 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-md;
-    background-color: $color-neutro-100;
+    background-color: $color-ak-light; 
     padding: $spacing-lg;
-    border: 1px solid $color-neutro-300;
+    border: 1px solid $color-ak-accent-500; 
     border-radius: 8px;
     box-shadow: 0 2px 6px $color-dark-alpha-100;
 
     input,
     textarea {
         padding: $spacing-sm $spacing-md;
-        border: 1px solid $color-neutro-400;
+        border: 1px solid $color-ak-neutral-400; 
         border-radius: 6px;
         font-size: $font-size-md;
         line-height: $line-height-md;
-        color: $color-neutro-800;
+        color: $color-ak-neutral-800; 
         background-color: $color-neutro-100;
         transition: border-color 0.2s, box-shadow 0.2s;
 
         &:focus {
             outline: none;
-            border-color: $color-primary-500;
-            box-shadow: 0 0 0 2px $color-primary-200;
+            border-color: $color-ak-accent-500; 
+            box-shadow: 0 0 0 2px rgba($color-ak-accent-500, 0.3);
         }
 
         &::placeholder {
@@ -46,7 +46,7 @@
     button {
         margin-top: $spacing-md;
         align-self: flex-start;
-        background-color: $color-primary-600;
+        background-color: $color-ak-primary-500; 
         color: $color-neutro-100;
         font-size: $font-size-md;
         font-weight: $font-weight-bold;
@@ -57,11 +57,11 @@
         transition: background-color 0.2s;
 
         &:hover {
-            background-color: $color-primary-700;
+            background-color: $color-ak-primary-600;
         }
 
         &:active {
-            background-color: $color-primary-800;
+            background-color: $color-ak-accent-600; 
         }
 
         &:disabled {
@@ -75,14 +75,13 @@
         box-shadow: 0 0 0 2px $color-success-100;
     }
 
-    /* 🔹 ESTILOS EXTRA (sumados) */
     h2 {
         margin-bottom: $spacing-md;
         padding-bottom: $spacing-xs;
-        border-bottom: 1px solid $color-neutro-300;
+        border-bottom: 1px solid $color-ak-accent-500; 
         font-size: $font-size-lg;
         font-weight: $font-weight-bold;
-        color: $color-primary-700;
+        color: $color-ak-primary-500; 
     }
 
     .form-group {
@@ -93,7 +92,7 @@
         label {
             font-size: $font-size-sm;
             font-weight: $font-weight-bold;
-            color: $color-neutro-700;
+            color: $color-ak-neutral-800; 
         }
     }
 

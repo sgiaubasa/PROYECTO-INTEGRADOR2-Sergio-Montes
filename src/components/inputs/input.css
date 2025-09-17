@@ -1,0 +1,41 @@
+.input {
+  position: relative;
+  max-width: 400px;
+}
+.input__helper-text {
+  position: absolute;
+  bottom: -1.25rem;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+.input--valid p,
+.input--valid label,
+.input--valid label.Mui-focused {
+  color: #0d3f49 !important;
+}
+.input--valid div input + fieldset,
+.input--valid div input ~ .MuiOutlinedInput-notchedOutline,
+.input--valid div textarea + fieldset,
+.input--valid div input:focus + fieldset,
+.input--valid div input:focus ~ .MuiOutlinedInput-notchedOutline,
+.input--valid div textarea:focus ~ .MuiOutlinedInput-notchedOutline {
+  border-color: #0d3f49 !important;
+}
+.input--invalid p,
+.input--invalid label,
+.input--invalid label.Mui-focused {
+  color: #e24141 !important;
+}
+.input--invalid div input + fieldset,
+.input--invalid div input ~ .MuiOutlinedInput-notchedOutline,
+.input--invalid div textarea + fieldset,
+.input--invalid div input:focus + fieldset,
+.input--invalid div input:focus ~ .MuiOutlinedInput-notchedOutline,
+.input--invalid div textarea:focus ~ .MuiOutlinedInput-notchedOutline {
+  border-color: #e24141 !important;
+}
+@media (max-width: 768px) {
+  .input {
+    width: 100% !important;
+  }
+}/*# sourceMappingURL=input.css.map */

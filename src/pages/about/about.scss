@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "@/../../../scss/variables" as var;
 
 .about {
     width: 100%;
@@ -9,39 +9,38 @@
     flex-direction: column;
     gap: var.$spacing-xxl;
 
-    /* Título principal */
     h2 {
         font-size: var.$font-size-xxl;
         font-weight: var.$font-weight-bold;
-        color: var.$color-primary-800;
+        color: var.$color-ak-primary-500; 
         text-align: center;
         margin-bottom: var.$spacing-xl;
         position: relative;
 
-        /* Línea decorativa debajo */
+        
         &::after {
             content: "";
             display: block;
             width: 60px;
             height: 4px;
             margin: var.$spacing-sm auto 0;
-            background: var.$color-primary-600;
+            background: var.$color-ak-accent-500; 
             border-radius: 2px;
         }
     }
 
-    /* Secciones internas (Mission, Vision, Values) */
+  
     section {
         display: flex;
         align-items: center;
         gap: var.$spacing-xl;
         padding: var.$spacing-xl;
         border-radius: 16px;
-        background-color: var.$color-neutro-100;
-        border: 1px solid var.$color-neutro-300;
+        background-color: var.$color-ak-light; 
+        border: 1px solid var.$color-ak-accent-500; 
         box-shadow: 0 6px 18px var.$color-dark-alpha-100;
 
-        /* Alternar disposición: imagen izquierda/derecha */
+     
         &:nth-child(even) {
             flex-direction: row-reverse;
         }
@@ -67,7 +66,7 @@
             flex: 2;
             font-size: var.$font-size-md;
             line-height: var.$line-height-lg;
-            color: var.$color-neutro-700;
+            color: var.$color-ak-neutral-800; 
         }
 
         .mission__title,
@@ -75,7 +74,7 @@
         .values__title {
             font-size: var.$font-size-xl;
             font-weight: var.$font-weight-bold;
-            color: var.$color-primary-700;
+            color: var.$color-ak-accent-500; 
             margin-bottom: var.$spacing-sm;
         }
     }

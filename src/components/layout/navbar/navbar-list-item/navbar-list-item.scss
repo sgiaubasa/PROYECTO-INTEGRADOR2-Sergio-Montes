@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "@/../../../../../scss/variables" as var;
 
 .navbar-list-item {
     &__link {
@@ -6,22 +6,34 @@
         align-items: center;
         gap: var.$spacing-xs;
         padding: var.$spacing-xs;
+        text-decoration: none;
+        transition: color 0.2s ease;
     }
 
     &__icon {
         display: none !important;
-        color: var.$color-primary-600;
+        color: var.$color-ak-primary-500; 
+        transition: color 0.2s ease;
     }
 
     &__label {
-        color: var.$color-primary-700;
+        color: var.$color-ak-neutral-800; 
         font-size: var.$font-size-md;
         font-weight: inherit;
+        transition: color 0.2s ease;
     }
 
     &:hover,
     &--active {
         font-weight: var.$font-weight-bold;
+
+        .navbar-list-item__label {
+            color: var.$color-ak-accent-500; 
+        }
+
+        .navbar-list-item__icon {
+            color: var.$color-ak-accent-500; 
+        }
     }
 
     @media screen and (max-width: 768px) {

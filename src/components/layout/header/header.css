@@ -1,0 +1,39 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: #184C4E;
+  color: #ffffff;
+}
+.header__institution {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.header__institution span, .header__institution .logo {
+  font-weight: 700;
+  color: #D6A163;
+}
+.header__title-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #3E2723;
+}
+.header__shopping-cart {
+  margin-left: auto;
+  color: #ffffff;
+}
+.header__shopping-cart svg {
+  font-size: 2rem;
+  transition: color 0.2s ease;
+}
+.header__shopping-cart svg:hover {
+  color: #D6A163;
+}/*# sourceMappingURL=header.css.map */

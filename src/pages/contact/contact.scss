@@ -1,22 +1,21 @@
-@import "../../scss/variables";
-
+@use "@/../../../scss/variables" as var;
 
 .contact {
-    padding: $spacing-xl;
-    background-color: $color-neutro-100;
+    padding: var.$spacing-xl;
+    background-color: var.$color-neutro-100;
 
     &__title {
-        font-size: $font-size-xxl;
-        font-weight: $font-weight-bold;
-        color: $color-primary-800;
-        margin-bottom: $spacing-lg;
+        font-size: var.$font-size-xxl;
+        font-weight: var.$font-weight-bold;
+        color: var.$color-ak-primary-800;
+        margin-bottom: var.$spacing-lg;
         text-align: center;
     }
 
     &__content {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: $spacing-xl;
+        gap: var.$spacing-xl;
 
         @media (max-width: 768px) {
             grid-template-columns: 1fr;
@@ -25,19 +24,19 @@
 
     &__data,
     &__form {
-        background: $color-neutro-200;
-        padding: $spacing-lg;
+        background: var.$color-neutro-200;
+        padding: var.$spacing-lg;
         border-radius: 0.75rem;
-        box-shadow: 0 4px 10px $color-dark-alpha-100;
+        box-shadow: 0 4px 10px var.$color-dark-alpha-100;
     }
 
     &__subtitle {
-        font-size: $font-size-lg;
-        font-weight: $font-weight-bold;
-        color: $color-primary-700;
-        margin-bottom: $spacing-md;
-        border-bottom: 2px solid $color-primary-300;
-        padding-bottom: $spacing-xs;
+        font-size: var.$font-size-lg;
+        font-weight: var.$font-weight-bold;
+        color: var.$color-ak-primary-700;
+        margin-bottom: var.$spacing-md;
+        border-bottom: 2px solid var.$color-ak-primary-300;
+        padding-bottom: var.$spacing-xs;
     }
 
     &__list {
@@ -47,25 +46,25 @@
     }
 
     &__item {
-        font-size: $font-size-md;
-        color: $color-neutro-700;
-        margin-bottom: $spacing-sm;
+        font-size: var.$font-size-md;
+        color: var.$color-neutro-700;
+        margin-bottom: var.$spacing-sm;
         display: flex;
         align-items: center;
-        gap: $spacing-sm;
+        gap: var.$spacing-sm;
 
         i {
-            color: $color-primary-600;
-            font-size: $font-size-lg;
+            color: var.$color-ak-primary-600;
+            font-size: var.$font-size-lg;
         }
 
         a {
-            color: $color-primary-700;
+            color: var.$color-ak-primary-700;
             text-decoration: none;
-            font-weight: $font-weight-bold;
+            font-weight: var.$font-weight-bold;
 
             &:hover {
-                color: $color-primary-900;
+                color: var.$color-ak-primary-900;
                 text-decoration: underline;
             }
         }
@@ -75,31 +74,31 @@
 .form {
     display: flex;
     flex-direction: column;
-    gap: $spacing-md;
+    gap: var.$spacing-md;
 
     &__group {
         display: flex;
         flex-direction: column;
-        gap: $spacing-xs;
+        gap: var.$spacing-xs;
 
         label {
-            font-size: $font-size-sm;
-            font-weight: $font-weight-bold;
-            color: $color-neutro-800;
+            font-size: var.$font-size-sm;
+            font-weight: var.$font-weight-bold;
+            color: var.$color-neutro-800;
         }
 
         input,
         textarea {
-            padding: $spacing-sm;
-            border: 1px solid $color-neutro-400;
+            padding: var.$spacing-sm;
+            border: 1px solid var.$color-neutro-400;
             border-radius: 0.5rem;
-            font-size: $font-size-md;
-            line-height: $line-height-md;
+            font-size: var.$font-size-md;
+            line-height: var.$line-height-md;
             transition: border 0.3s, box-shadow 0.3s;
 
             &:focus {
-                border-color: $color-primary-500;
-                box-shadow: 0 0 0 3px $color-primary-200;
+                border-color: var.$color-ak-primary-500;
+                box-shadow: 0 0 0 3px var.$color-ak-primary-200;
                 outline: none;
             }
         }
@@ -112,29 +111,29 @@
 
     .btn {
         align-self: flex-start;
-        padding: $spacing-sm $spacing-lg;
+        padding: var.$spacing-sm var.$spacing-lg;
         border: none;
         border-radius: 0.5rem;
-        font-size: $font-size-md;
-        font-weight: $font-weight-bold;
+        font-size: var.$font-size-md;
+        font-weight: var.$font-weight-bold;
         cursor: pointer;
         transition: background 0.3s;
 
         &--primary {
-            background-color: $color-primary-600;
-            color: $color-neutro-100;
+            background-color: var.$color-ak-primary-600;
+            color: var.$color-neutro-100;
 
             &:hover {
-                background-color: $color-primary-700;
+                background-color: var.$color-ak-primary-700;
             }
         }
 
         &--danger {
-            background-color: $color-danger-500;
-            color: $color-neutro-100;
+            background-color: var.$color-danger-500;
+            color: var.$color-neutro-100;
 
             &:hover {
-                background-color: $color-danger-700;
+                background-color: var.$color-danger-700;
             }
         }
     }

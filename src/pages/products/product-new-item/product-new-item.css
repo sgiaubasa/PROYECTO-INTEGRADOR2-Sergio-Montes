@@ -1,0 +1,29 @@
+.product-new-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  min-height: 220px;
+}
+.product-new-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  background: #E3F2F2;
+}
+.product-new-item__image {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.product-new-item__image:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}/*# sourceMappingURL=product-new-item.css.map */

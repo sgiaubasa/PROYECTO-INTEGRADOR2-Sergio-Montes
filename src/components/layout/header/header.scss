@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "@/../../../../scss/variables" as var;
 
 .header {
     position: relative;
@@ -6,16 +6,20 @@
     align-items: center;
     justify-content: space-between;
     padding: var.$spacing-md var.$spacing-lg;
-    background-color: var.$color-primary-800;
+    background-color: var.$color-ak-primary-500; 
     color: var.$color-neutro-100;
-
 
     &__institution {
         display: flex;
         align-items: center;
         gap: var.$spacing-sm;
-    }
 
+
+        span, .logo {
+            font-weight: var.$font-weight-bold;
+            color: var.$color-ak-accent-500; 
+        }
+    }
 
     &__title-center {
         position: absolute;
@@ -23,10 +27,12 @@
         transform: translateX(-50%);
         font-size: var.$font-size-xl;
         font-weight: var.$font-weight-bold;
-        color: var.$color-neutro-100;
+        color: var.$color-neutro-100; 
         letter-spacing: 1px;
-    }
 
+        
+        text-shadow: 1px 1px 2px var.$color-ak-neutral-800;
+    }
 
     &__shopping-cart {
         margin-left: auto;
@@ -34,6 +40,11 @@
 
         svg {
             font-size: 2rem;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: var.$color-ak-accent-500; 
+            }
         }
     }
 }

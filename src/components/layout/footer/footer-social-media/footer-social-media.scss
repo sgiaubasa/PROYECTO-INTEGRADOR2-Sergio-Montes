@@ -1,4 +1,4 @@
-@use "@/scss/variables" as var;
+@use "@/../../../../../scss/variables" as var;
 
 .footer-social-media {
     display: flex;
@@ -6,16 +6,21 @@
     gap: var.$spacing-xs;
 
     &__title {
-        color: var.$color-neutro-100;
+        color: var.$color-ak-light; 
         font-size: var.$font-size-sm;
         font-weight: var.$font-weight-bold;
+        letter-spacing: 0.5px;
+
+     
+        &:hover {
+            color: var.$color-ak-accent-500;
+        }
     }
 
     &__list {
         display: flex;
         flex-direction: row;
         gap: var.$spacing-sm;
-
         padding-left: var.$spacing-xs;
     }
 }

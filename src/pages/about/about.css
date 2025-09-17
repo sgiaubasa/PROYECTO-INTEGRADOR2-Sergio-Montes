@@ -1,0 +1,71 @@
+.about {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.about h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #184C4E;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.about h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 0.5rem auto 0;
+  background: #D6A163;
+  border-radius: 2px;
+}
+.about section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background-color: #F9F6F2;
+  border: 1px solid #D6A163;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+.about section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+@media (max-width: 768px) {
+  .about section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.about section .mission__image,
+.about section .vision__image,
+.about section .values__image {
+  flex: 1;
+  max-width: 300px;
+  border-radius: 14px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.about section .mission__description,
+.about section .vision__description,
+.about section .values__description {
+  flex: 2;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #3E2723;
+}
+.about section .mission__title,
+.about section .vision__title,
+.about section .values__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #D6A163;
+  margin-bottom: 0.5rem;
+}/*# sourceMappingURL=about.css.map */

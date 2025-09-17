@@ -1,21 +1,33 @@
-@use "@/scss/variables" as var;
+@use "@/../../../../scss/variables" as var;
 
 .footer {
     grid-area: footer;
 
     padding: var.$spacing-sm 5%;
-    background-color: var.$color-primary-500;
+    background-color: var.$color-ak-neutral-800; 
 
     &__content {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         padding: var.$spacing-xs;
+
+        a {
+            color: var.$color-ak-light; 
+            text-decoration: none;
+            font-weight: var.$font-weight-bold;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: var.$color-ak-accent-500; 
+            }
+        }
     }
 
     &__copyright {
-        color: var.$color-neutro-200;
+        color: var.$color-ak-light; 
         font-size: var.$font-size-sm;
         font-weight: var.$font-weight-regular;
         text-align: center;
+        margin-top: var.$spacing-sm;
     }
 }

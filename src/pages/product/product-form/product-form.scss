@@ -9,8 +9,8 @@
     max-width: 450px;
     margin: var.$spacing-xl auto;
     padding: var.$spacing-lg;
-    background: var.$color-neutro-100;
-    border: 1px solid var.$color-neutro-300;
+    background: var.$color-ak-light; 
+    border: 1px solid var.$color-ak-accent-500; 
     border-radius: var.$spacing-sm;
     box-shadow: 0 4px 12px var.$color-dark-alpha-100;
 
@@ -19,7 +19,7 @@
         max-height: 220px;
         object-fit: cover;
         border-radius: var.$spacing-xs;
-        border: 1px solid var.$color-neutro-300;
+        border: 1px solid var.$color-ak-accent-500; 
         margin-top: var.$spacing-sm;
     }
 
@@ -39,11 +39,11 @@
             transition: all 0.3s ease;
 
             &.btn--primary {
-                background: var.$color-primary-600;
+                background: var.$color-ak-primary-500; 
                 color: var.$color-neutro-100;
 
                 &:hover {
-                    background: var.$color-primary-700;
+                    background: var.$color-ak-primary-600; 
                 }
 
                 &:disabled {
@@ -53,7 +53,7 @@
             }
 
             &.btn--danger {
-                background: var.$color-danger-500;
+                background: var.$color-danger-500; 
                 color: var.$color-neutro-100;
 
                 &:hover {
@@ -63,13 +63,12 @@
         }
     }
 
-    // mensaje de éxito que viene del componente AlertSuccessForm
     .alert-success {
         margin-top: var.$spacing-md;
         padding: var.$spacing-sm;
         background: var.$color-success-100;
-        color: var.$color-success-700;
-        border: 1px solid var.$color-success-300;
+        color: var.$color-ak-neutral-800; 
+        border: 1px solid var.$color-ak-accent-500; 
         border-radius: var.$spacing-xs;
         text-align: center;
         font-weight: var.$font-weight-bold;

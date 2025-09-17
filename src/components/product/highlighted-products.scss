@@ -1,19 +1,33 @@
-@use "@/scss/variables" as var;
+@use "@/../../../scss/variables" as var;
 
 .highlighted-products {
     padding: var.$spacing-xl;
     text-align: center;
+    background-color: var.$color-neutro-100; 
 
     h2 {
         margin-bottom: var.$spacing-lg;
         font-size: var.$font-size-xxl;
         font-weight: var.$font-weight-bold;
-        color: var.$color-neutro-800;
+        color: var.$color-ak-primary-800; 
+        position: relative;
+
+        
+        &::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 4px;
+            margin: var.$spacing-sm auto 0;
+            background: var.$color-ak-primary-500;
+            border-radius: 2px;
+        }
     }
 
     .highlighted-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: var.$spacing-lg;
+        margin-top: var.$spacing-lg;
     }
 }

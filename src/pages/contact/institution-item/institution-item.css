@@ -1,0 +1,15 @@
+.institution-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.institution-item__label {
+  color: #123C3C;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.institution-item__value {
+  color: #495057;
+  font-size: 1rem;
+  font-weight: 400;
+}/*# sourceMappingURL=institution-item.css.map */

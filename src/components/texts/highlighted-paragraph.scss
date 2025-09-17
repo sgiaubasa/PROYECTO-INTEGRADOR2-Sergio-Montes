@@ -1,11 +1,14 @@
+@use "@/../../../scss/variables" as var;
+
 .highlighted-paragraph {
-    background-color: #f9f9f9;
-    border-left: 5px solid #4caf50;
-    padding: 1.5rem;
-    margin: 2rem auto;
+    background-color: var.$color-ak-light; 
+    border-left: 5px solid var.$color-success-500; 
+    padding: var.$spacing-lg;
+    margin: var.$spacing-xl auto;
     max-width: 800px;
-    font-size: 1.2rem;
-    font-weight: 500;
+
+    font-size: var.$font-size-lg;
+    font-weight: var.$font-weight-bold;
     text-align: center;
-    color: #333;
+    color: var.$color-ak-neutral-800; 
 }
